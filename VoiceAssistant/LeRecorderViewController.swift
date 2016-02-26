@@ -31,7 +31,7 @@ class LeRecorderViewController: LeViewController {
     func startAnimation() {
         
         micIcon?.startAnimation()
-        micIcon?.startScale()
+//        micIcon?.startScale()
         
     }
     

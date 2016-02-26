@@ -103,6 +103,7 @@ class LeLoadingAnimationView: UIView {
         self.layer.addSublayer(verticalAppearLayer!)
         
         let path = UIBezierPath()
+        
         let originPoint = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds) - kRadius + kLineLong);
         path.moveToPoint(originPoint)
         
@@ -116,18 +117,37 @@ class LeLoadingAnimationView: UIView {
         verticalAppearLayer!.strokeColor = likeColor!.CGColor;
         verticalAppearLayer!.fillColor = nil;
         
+        verticalAppearLayer?.strokeStart
         // end status
         let strokeEnd: CGFloat = 1;
         verticalAppearLayer!.strokeEnd = strokeEnd;
         
         // animation
+        let animagroup = CAAnimationGroup()
+        
         let anima = CABasicAnimation(keyPath: "strokeEnd")
-        anima.duration = kStep2Duration;
+        anima.duration = kStep2Duration / 2;
+        anima.beginTime = 0
         anima.fromValue = 0;
         anima.toValue = strokeEnd
-        anima.delegate = self
-        anima.setValue("step2", forKey: kName)
-        verticalAppearLayer!.addAnimation(anima, forKey: nil)
+
+        
+        let anima2 = CABasicAnimation(keyPath: "strokeStart")
+        anima2.duration = kStep2Duration / 2;
+        anima2.beginTime = kStep2Duration / 2
+        anima2.fromValue = 0;
+        anima2.toValue = strokeEnd
+       
+        animagroup.delegate = self
+        animagroup.setValue("step2", forKey: kName)
+        
+        animagroup.fillMode = kCAFillModeBoth
+        animagroup.duration = kStep2Duration
+        animagroup.animations = [anima, anima2]
+        
+        animagroup.removedOnCompletion = true
+        
+        verticalAppearLayer!.addAnimation(animagroup, forKey: nil)
     }
     
     // 左下斜线成长到全长
@@ -154,11 +174,28 @@ class LeLoadingAnimationView: UIView {
         leftAppearLayer!.strokeEnd = strokeEnd;
         
         // animation
+        let animagroup = CAAnimationGroup()
+        
         let anima = CABasicAnimation(keyPath: "strokeEnd")
-        anima.duration = kStep2Duration;
+        anima.duration = kStep2Duration / 2;
+        anima.beginTime = 0
         anima.fromValue = 0;
         anima.toValue = strokeEnd
-        leftAppearLayer!.addAnimation(anima, forKey: nil)
+        
+        
+        let anima2 = CABasicAnimation(keyPath: "strokeStart")
+        anima2.duration = kStep2Duration / 2;
+        anima2.beginTime = kStep2Duration / 2
+        anima2.fromValue = 0;
+        anima2.toValue = strokeEnd
+        
+        animagroup.fillMode = kCAFillModeBoth
+        animagroup.duration = kStep2Duration
+        animagroup.animations = [anima, anima2]
+
+        animagroup.removedOnCompletion = true
+        
+        leftAppearLayer!.addAnimation(animagroup, forKey: nil)
     }
     
     // 右下斜线成长到全长
@@ -185,11 +222,29 @@ class LeLoadingAnimationView: UIView {
         
         // animation
         rightAppearLayer!.strokeEnd = strokeEnd;
+        
+        let animagroup = CAAnimationGroup()
+        
         let anima = CABasicAnimation(keyPath: "strokeEnd")
-        anima.duration = kStep2Duration;
+        anima.duration = kStep2Duration / 2;
+        anima.beginTime = 0
         anima.fromValue = 0;
         anima.toValue = strokeEnd
-        rightAppearLayer!.addAnimation(anima, forKey: nil)
+        
+        
+        let anima2 = CABasicAnimation(keyPath: "strokeStart")
+        anima2.duration = kStep2Duration / 2;
+        anima2.beginTime = kStep2Duration / 2
+        anima2.fromValue = 0;
+        anima2.toValue = strokeEnd
+        
+        animagroup.fillMode = kCAFillModeBoth
+        animagroup.duration = kStep2Duration
+        animagroup.animations = [anima, anima2]
+
+        animagroup.removedOnCompletion = true
+        
+        rightAppearLayer!.addAnimation(animagroup, forKey: nil)
     }
     
        // MARK: - animation step stop

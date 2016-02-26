@@ -84,29 +84,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMj-6d-KQN" customClass="CCMRadarView" customModule="VoiceAssistant" customModuleProvider="target">
-                                <rect key="frame" x="227" y="483" width="147" height="147"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="147" id="8Fl-9J-gK2"/>
-                                    <constraint firstAttribute="width" constant="147" id="HFQ-TT-lno"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="RecordImg"/>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
-                                        <size key="value" width="90" height="90"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="radarColor">
-                                        <color key="value" red="0.11372549019607843" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRadius">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="waveWidth">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXm-gc-LYM">
                                 <rect key="frame" x="534" y="12" width="46" height="30"/>
                                 <constraints>
@@ -174,6 +151,29 @@
                                     <constraint firstItem="fQf-Ev-o8Y" firstAttribute="centerX" secondItem="AhM-xH-bJj" secondAttribute="centerX" id="uTz-LZ-1HX"/>
                                     <constraint firstItem="fQf-Ev-o8Y" firstAttribute="top" secondItem="Pbp-Oe-zgB" secondAttribute="bottom" constant="20" id="wlo-sE-Td9"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMj-6d-KQN" customClass="CCMRadarView" customModule="VoiceAssistant" customModuleProvider="target">
+                                <rect key="frame" x="227" y="483" width="147" height="147"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="147" id="8Fl-9J-gK2"/>
+                                    <constraint firstAttribute="width" constant="147" id="HFQ-TT-lno"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="RecordImg"/>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="iconSize">
+                                        <size key="value" width="90" height="90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="radarColor">
+                                        <color key="value" red="0.11372549019607843" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="waveWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

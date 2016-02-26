@@ -70,7 +70,13 @@ import UIKit
         }
     }
     
-    public func startScale(){
+    public func startAnimation() {
+        animating = true
+        //startScale()
+        scanAnimation()
+    }
+    
+    private func startScale(){
         if ((HomeView != nil) && animating){
             let scaleAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
             
@@ -85,14 +91,14 @@ import UIKit
         }
     }
     
-    public func startAnimation() {
-        animating = true
+    private func scanAnimation() {
+       
         if let sublayers = layer.sublayers {
             for (index,sublayer) in (layer.sublayers as [CALayer]!).enumerate() {
                 if let sublayer = sublayer as? CAShapeLayer {
                     let animation = CAKeyframeAnimation()
                     animation.keyPath = "opacity"
-                    animation.values = [0,0,1,0]
+                    animation.values = [0,0.5,1,0]
                     animation.duration = 1.5
                     var beginTime:Double
                     if (!reversedRadar){
@@ -122,7 +128,6 @@ import UIKit
                     
                 }
             }
-            
         }
     }
     
@@ -133,7 +138,6 @@ import UIKit
                 currentAlpha /= 2.5
             }
         }
-        
         
         UIView.animateWithDuration(0.6, animations: { () -> Void in
             for (_,sublayer) in (self.layer.sublayers as [CALayer]!).enumerate() {
@@ -223,6 +227,7 @@ import UIKit
             let imageView = UIImageView(frame: CGRectMake((self.bounds.width - iconSize.width) / 2.0, (self.bounds.height - iconSize.height) / 2.0, iconSize.width, iconSize.height))
             imageView.image = image
             self.HomeView = imageView;
+
             self.addSubview(imageView)
         }
         
